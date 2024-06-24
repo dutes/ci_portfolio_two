@@ -2,12 +2,16 @@
 //event listener for page changes to move through states
 document.addEventListener('DOMContentLoaded', () => {
     const firstPage = document.getElementById('first-page');
+    const galleryPage = document.getElementById('gallery-page');
     const gamePage = document.getElementById('game-page');
     const successPage = document.getElementById('success-page');
-    const chosenImage = document.createElement('img');
-    chosenImage.classList.add('chosenImage');
-    successPage.appendChild(chosenImage);
+    const chosenImage = document.getElementById('chosen-image');
+    const priceElement = document.getElementById('price');
+    const totalElement = document.getElementById('total');
+    const successSound = document.getElementById('success-sound');
 
+    let price=0;
+    let total=0;
 
  // Initialize to show the first page
     showSection('first-page');
@@ -36,7 +40,7 @@ function searchQueryImage(query) {
             console.log('Data received:', data); //debug output
             if (data.items && data.items.length > 0) {
                 displayImages(data.items);
-                showSection('game-page');
+                showSection('gallery-page');
             } else {
                 displayNoResults();
             }
@@ -46,7 +50,7 @@ function searchQueryImage(query) {
 
 //function to display images in the search result container
 function displayImages(items) {//runs through the returned json blob and pulls out the image link, title and sets size to 200px
-    const resultsContainer = document.getElementById('search-result');
+    const resultsContainer = document.getElementById('gallery-page');
     resultsContainer.innerHTML = ''; 
 
     items.forEach(item => {
@@ -58,7 +62,11 @@ function displayImages(items) {//runs through the returned json blob and pulls o
         imgElement.addEventListener('click', () => {
             console.log('image clicked', item.link);
             chosenImage.src=item.link;
-            showSection('success-page');
+            price= generateRandomPrice();
+            priceElement.textContent=`${price.toFixed(2)}€`;
+            total=0;
+            totalElement.textContent=`${total.toFixed(2)}€`;
+            showSection('game-page');
         })
         resultsContainer.appendChild(imgElement);       
     });
@@ -69,10 +77,13 @@ function displayNoResults() {
     const resultsContainer = document.getElementById('seaerch-results');
     resultsContainer.innerHTML = '<p>No images found</p>';
 }
+
+
 //function to show the active section
 function showSection(sectionId) {
     console.log('trying to load', sectionId);
     firstPage.style.display = 'none';
+    galleryPage.style.display ='none';
     gamePage.style.display = 'none';
     successPage.style.display = 'none';
 
@@ -85,5 +96,40 @@ function showSection(sectionId) {
     }
 }
 
+function generateRandomPrice() {
+    const coinValues = [0.05, 0.10,0.20, 0.50, 1.00, 2.00];
+
+    let maxPrice= 5.00;
+    let minPrice= 0.05; 
+
+    let steps = (maxPrice - minPrice) / 0.05; //establish range and number of steps between 0.05 and 5
+
+    let randomStep = Math.floor(Math.random() * steps); //make a random increment of steps
+
+    let price = (minPrice + randomStep * 0.05).toFixed(2); //make the step number into a money amount. 
+
+    return parseFloat(price);
+}
+
+document.querySelectorAll('.coin').forEach(coin => {
+    coin.addEventListener('click', () => {
+        const coinValue = parseFloat(coin.getAttribute('data-value'));
+        total += coinValue;
+        totalElement.textContent = `${total.toFixed(2)}€`;
+        if (total.toFixed(2) === price.toFixed(2)) {
+            successSound.play();
+            showSection('success-page');
+            toyDescription.textContent ='Would you like to another of the same toys or start with a new search?';
+        }
+    });
+});  
+
+document.getElementById('continue-game').addEventListener('click', () => {
+    showSection('gallery-page');
+});
+
+document.getElementById('new-game').addEventListener('click', () => {
+    showSection('first-page');
+})
 
 });

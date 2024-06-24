@@ -1,5 +1,5 @@
 body {
-    background-color: blanchedalmond;
+    background-color: grey;
     font-family: Nunito Sans;
     margin: 0;
     padding: 0;
@@ -8,7 +8,11 @@ body {
     align-items: center;
     justify-content: center;
 }
+#hero-image {
+    max-height: 200px;
+    width: auto;
 
+}
 .page-section {
     display: none;
     flex-direction: column;
