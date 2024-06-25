@@ -50,6 +50,9 @@
         <button class="coin" data-value="2"><img src="assets/images/2euro.png" alt="2 euro coin"></button>
     </div>
     <p>Total: <span id="total"></span></p>
+    <button id="give-money">Give money to shop keeper</button>
+    <button id="reset-total">Sart over</button>
+    <p id="feedback-message" style="color: red;"></p>
 </div>
     
 
@@ -59,8 +62,11 @@
         <img src="assets/images/hero_robot.png" alt="Friendly robot helper" id="hero-image">
         <h1> WELL DONE! </h1>
         <audio id="success-sound" src="assets/sounds/success-sound.mp3"></audio> <!--hat tip https://pixabay.com/-->
-        <p>Would you like to buy another one of *add toy query back in here* or start a new game?</p>
+        <img id="chosen-toy-image" src="" alt="Purchased toy" style="width: 200px; display: none;">
+        <p>Well done on buying your toy!</p>
+        <p>If you would like to go back to pick another of the toys you just looked for, press the "Continue" button.</p>
         <button id="continue-game">Continue</button>
+        <p>If you would prefer to search for a different kind of toy, press the "New Game" button</p>
         <button id="new-game">New game</button>
     </div>
 

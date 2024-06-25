@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const priceElement = document.getElementById("price");
   const totalElement = document.getElementById("total");
   const successSound = document.getElementById("success-sound");
+  const toyDescription = document.getElementById("toy-description");
+  const feedbackMessage = document.getElementById("feedback-message");
+  const successChosenToy=document.getElementById("chosen-toy-image");
 
   let price = 0;
   let total = 0;
@@ -34,9 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
       query
     )}&searchType=image&num=5`;
     //https://developers.google.com/custom-search/v1/introduction -> google custom search docs
-
     console.log("Fetching URL:", url); //debug output
-
     fetch(url) //code to use custom google search and pass the data off to the displayimages function or if none, displaynoresults
       .then((response) => response.json())
       .then((data) => {
@@ -56,7 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
     //runs through the returned json blob and pulls out the image link, title and sets size to 200px
     const resultsContainer = document.getElementById("search-result");
     resultsContainer.innerHTML = "";
-
     items.forEach((item) => {
       console.log("Item:", item); // Debugging: log each item
       const imgElement = document.createElement("img");
@@ -109,19 +109,36 @@ document.addEventListener("DOMContentLoaded", () => {
     return parseFloat(price);
   }
 
+  //coin button event listener total sum
   document.querySelectorAll(".coin").forEach((coin) => {
     coin.addEventListener("click", () => {
       const coinValue = parseFloat(coin.getAttribute("data-value"));
       total += coinValue;
       totalElement.textContent = `${total.toFixed(2)}€`;
-      if (total.toFixed(2) === price.toFixed(2)) {
-        successSound.play();
-        showSection("success-page");
-        toyDescription.textContent =
-          "Would you like to another of the same toys or start with a new search?";
-      }
     });
   });
+
+  //submit button event listener (give-money). Feeback on over or under
+  document.getElementById("give-money").addEventListener("click", () => {
+    if (total.toFixed(2) === price.toFixed(2)) {
+      successSound.play();
+      showSection("success-page");
+      successChosenToy.src=chosenImage.src;
+      successChosenToy.style.display='block';
+      toyDescription.textContent = "Would you like to another of the same toys or start with a new search?";
+    } else if (total < price) {
+        feedbackMessage.textContent="That's not enough I'm afraid, try adding more coins.";
+    } else {
+        feedbackMessage.textContent="That's too much. Start over and try again."
+    }
+    });  
+
+  //reset button
+  document.getElementById('reset-total').addEventListener("click", () => {
+    total=0;
+    totalElement.textContent=`${total.toFixed(2)}€`;
+    feedbackMessage.textContent='';
+  })
 
   document.getElementById("continue-game").addEventListener("click", () => {
     showSection("gallery-page");
