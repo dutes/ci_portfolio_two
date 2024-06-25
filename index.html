@@ -21,7 +21,7 @@
         <p>Welcome to the robot toy shop! Please type what you would like to buy in the text box below:</p>
         <form id="search-bar" class="search-bar">
             <input type="text" id="search-query" class="search-input" placeholder="Enter your toy here" required>
-            <button type="submit" class="search-button">Search</button>
+            <button type="submit" id="search-button" class="search-button">Search</button>
         </form>
     </div>
 
@@ -40,19 +40,21 @@
     <img src="assets/images/hero_robot.png" alt="Friendly robot helper" id="hero-image">
     <h1>You chose to buy this toy:</h1>
     <img id="chosen-image" class="chosenimage" src="" alt="Selected toy">
-    <p>The price is: <span id="price"></span></p>  
+    <p>The price is: </p> 
+    <span id="price"></span>
     <div id="coins">
-        <button class="coin" data-value="0.05"><img src="assets/images/5cent.png" alt="5 cent coin"></button>
-        <button class="coin" data-value="0.10"><img src="assets/images/10cent.png" alt="10 cent coin"></button>
-        <button class="coin" data-value="0.20"><img src="assets/images/20cent.png" alt="20 cent coin"></button>
-        <button class="coin" data-value="0.50"><img src="assets/images/50cent.png" alt="50 cent coin"></button>
-        <button class="coin" data-value="1"><img src="assets/images/1euro.png" alt="1 euro coin"></button>
-        <button class="coin" data-value="2"><img src="assets/images/2euro.png" alt="2 euro coin"></button>
+        <button class="coin coin-5c" data-value="0.05"><img src="assets/images/5cent.png" alt="5 cent coin"></button>
+        <button class="coin coin-10c" data-value="0.10"><img src="assets/images/10cent.png" alt="10 cent coin"></button>
+        <button class="coin coin-20c" data-value="0.20"><img src="assets/images/20cent.png" alt="20 cent coin"></button>
+        <button class="coin coin-50c" data-value="0.50"><img src="assets/images/50cent.png" alt="50 cent coin"></button>
+        <button class="coin coin-1e" data-value="1"><img src="assets/images/1euro.png" alt="1 euro coin"></button>
+        <button class="coin coin-2e" data-value="2"><img src="assets/images/2euro.png" alt="2 euro coin"></button>
     </div>
-    <p>Total: <span id="total"></span></p>
+    <p>Total: </p>
+    <span id="total"></span>
     <button id="give-money">Give money to shop keeper</button>
     <button id="reset-total">Sart over</button>
-    <p id="feedback-message" style="color: red;"></p>
+    <p id="feedback-message"></p>
 </div>
     
 

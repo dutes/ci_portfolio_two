@@ -125,7 +125,6 @@ document.addEventListener("DOMContentLoaded", () => {
       showSection("success-page");
       successChosenToy.src=chosenImage.src;
       successChosenToy.style.display='block';
-      toyDescription.textContent = "Would you like to another of the same toys or start with a new search?";
     } else if (total < price) {
         feedbackMessage.textContent="That's not enough I'm afraid, try adding more coins.";
     } else {
