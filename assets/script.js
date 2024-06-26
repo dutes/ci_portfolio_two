@@ -10,10 +10,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const successSound = document.getElementById("success-sound");
   const toyDescription = document.getElementById("toy-description");
   const feedbackMessage = document.getElementById("feedback-message");
-  const successChosenToy=document.getElementById("chosen-toy-image");
+  const successChosenToy = document.getElementById("chosen-toy-image");
+  const newGameInstruct = document.getElementById("new-game-instruction");
+  const searchInput = document.getElementById("search-query");
 
   let price = 0;
   let total = 0;
+  let purchasedItems = [];
 
   // Initialize to show the first page
   showSection("first-page");
@@ -59,7 +62,10 @@ document.addEventListener("DOMContentLoaded", () => {
     resultsContainer.innerHTML = "";
     items.forEach((item) => {
       console.log("Item:", item); // Debugging: log each item
-      const imgElement = document.createElement("img");
+      const imgWrapper = document.createElement("div");
+      imgWrapper.style.position ="relative";
+      
+      const imgElement =document.createElement("img");
       imgElement.src = item.link;
       imgElement.alt = item.title;
       imgElement.style.width = "200px";
@@ -72,7 +78,15 @@ document.addEventListener("DOMContentLoaded", () => {
         totalElement.textContent = `${total.toFixed(2)}€`;
         showSection("game-page");
       });
-      resultsContainer.appendChild(imgElement);
+      if (purchasedItems.includes(item.link)) {
+        imgElement.classList.add("sold");
+        const overlay = document.createElement("div");
+        overlay.classList.add("sold-overlay");
+        overlay.textContent = "SOLD";
+        imgWrapper.appendChild(overlay);
+      }
+      imgWrapper.appendChild(imgElement);
+      resultsContainer.appendChild(imgWrapper);
     });
   }
 
@@ -89,7 +103,6 @@ document.addEventListener("DOMContentLoaded", () => {
     galleryPage.style.display = "none";
     gamePage.style.display = "none";
     successPage.style.display = "none";
-
     const sectionToShow = document.getElementById(sectionId);
     if (sectionToShow) {
       sectionToShow.style.display = "flex";
@@ -123,27 +136,44 @@ document.addEventListener("DOMContentLoaded", () => {
     if (total.toFixed(2) === price.toFixed(2)) {
       successSound.play();
       showSection("success-page");
-      successChosenToy.src=chosenImage.src;
-      successChosenToy.style.display='block';
+      successChosenToy.src = chosenImage.src;
+      successChosenToy.style.display = "block";
+      purchasedItems.push(chosenImage.src);
+      console.log(purchasedItems);
+      if (purchasedItems.length >= 5) {
+        toyDescription.textContent =
+          "You have bought all the toys you searched for! Start a new game and look for another toy!";
+        document.getElementById("continue-game").style.display = "none";
+        newGameInstruct.style.display="none";
+      } else {
+        toyDescription.textContent =
+          "If you would like to go back to pick another of the toys you just looked for, press the continue button";
+        document.getElementById("continue-game").style.display = "block";
+        newGameInstruct.style.display="block";
+      }
     } else if (total < price) {
-        feedbackMessage.textContent="That's not enough I'm afraid, try adding more coins.";
+      feedbackMessage.textContent =
+        "That's not enough I'm afraid, try adding more coins.";
     } else {
-        feedbackMessage.textContent="That's too much. Start over and try again."
+      feedbackMessage.textContent =
+        "That's too much. Start over and try again.";
     }
-    });  
+  });
 
   //reset button
-  document.getElementById('reset-total').addEventListener("click", () => {
-    total=0;
-    totalElement.textContent=`${total.toFixed(2)}€`;
-    feedbackMessage.textContent='';
-  })
+  document.getElementById("reset-total").addEventListener("click", () => {
+    total = 0;
+    totalElement.textContent = `${total.toFixed(2)}€`;
+    feedbackMessage.textContent = "";
+  });
 
   document.getElementById("continue-game").addEventListener("click", () => {
     showSection("gallery-page");
   });
 
   document.getElementById("new-game").addEventListener("click", () => {
+    purchasedItems=[];
+    searchInput.value='';
     showSection("first-page");
   });
 });

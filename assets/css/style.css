@@ -71,7 +71,7 @@ button {
 #search-result img {
     cursor: pointer;
     padding: 10px;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
     transition: transform 0.3s, box-shadow 0.3;
 }
 
@@ -81,6 +81,10 @@ button {
 }
 
 #search-result {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
     background-color: black;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
@@ -153,7 +157,27 @@ button {
     margin-top: 10px;
 }
 
-/* medua  query for mobile 600px or less */
+.sold {
+    position: relative;
+    filter: grayscale(100%);
+    opacity: 0.5;
+}
+
+.sold-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:red;
+    font-size: 2em;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 5px 10px;
+    border-radius: 5px;
+    pointer-events: none;
+    text-align: center;
+}
+
+/* media  query for mobile 600px or less */
 @media (max-width: 600px) {
     body {
         justify-content: flex-start;

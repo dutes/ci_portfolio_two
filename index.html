@@ -32,43 +32,44 @@
         <p>Select the toy from the images: </p>
         <div id="search-result">
             <!-- This is where the image returned from the GIS will be displayed -->
-         </div>
+        </div>
     </div>
 
-<!--game section-->
-<div id="game-page" class="page-section" style="display: none;">
-    <img src="assets/images/hero_robot.png" alt="Friendly robot helper" id="hero-image">
-    <h1>You chose to buy this toy:</h1>
-    <img id="chosen-image" class="chosenimage" src="" alt="Selected toy">
-    <p>The price is: </p> 
-    <span id="price"></span>
-    <div id="coins">
-        <button class="coin coin-5c" data-value="0.05"><img src="assets/images/5cent.png" alt="5 cent coin"></button>
-        <button class="coin coin-10c" data-value="0.10"><img src="assets/images/10cent.png" alt="10 cent coin"></button>
-        <button class="coin coin-20c" data-value="0.20"><img src="assets/images/20cent.png" alt="20 cent coin"></button>
-        <button class="coin coin-50c" data-value="0.50"><img src="assets/images/50cent.png" alt="50 cent coin"></button>
-        <button class="coin coin-1e" data-value="1"><img src="assets/images/1euro.png" alt="1 euro coin"></button>
-        <button class="coin coin-2e" data-value="2"><img src="assets/images/2euro.png" alt="2 euro coin"></button>
+    <!--game section-->
+    <div id="game-page" class="page-section" style="display: none;">
+        <img src="assets/images/hero_robot.png" alt="Friendly robot helper" id="hero-image">
+        <h1>You chose to buy this toy:</h1>
+        <img id="chosen-image" class="chosenimage" src="" alt="Selected toy">
+        <p>The price is:<span id="price"></span> </p>
+        <div id="coins">
+            <button class="coin coin-5c" data-value="0.05"><img src="assets/images/5cent.png"
+                    alt="5 cent coin"></button>
+            <button class="coin coin-10c" data-value="0.10"><img src="assets/images/10cent.png"
+                    alt="10 cent coin"></button>
+            <button class="coin coin-20c" data-value="0.20"><img src="assets/images/20cent.png"
+                    alt="20 cent coin"></button>
+            <button class="coin coin-50c" data-value="0.50"><img src="assets/images/50cent.png"
+                    alt="50 cent coin"></button>
+            <button class="coin coin-1e" data-value="1"><img src="assets/images/1euro.png" alt="1 euro coin"></button>
+            <button class="coin coin-2e" data-value="2"><img src="assets/images/2euro.png" alt="2 euro coin"></button>
+        </div>
+        <p>Total: <span id="total"></span></p>
+        
+        <button id="give-money">Give money to shop keeper</button>
+        <button id="reset-total">Start over</button>
+        <p id="feedback-message"></p>
     </div>
-    <p>Total: </p>
-    <span id="total"></span>
-    <button id="give-money">Give money to shop keeper</button>
-    <button id="reset-total">Sart over</button>
-    <p id="feedback-message"></p>
-</div>
-    
 
-
-<!--well done section-->
+    <!--well done section-->
     <div id="success-page" class="page-section" style="display: none;">
         <img src="assets/images/hero_robot.png" alt="Friendly robot helper" id="hero-image">
         <h1> WELL DONE! </h1>
         <audio id="success-sound" src="assets/sounds/success-sound.mp3"></audio> <!--hat tip https://pixabay.com/-->
         <img id="chosen-toy-image" src="" alt="Purchased toy" style="width: 200px; display: none;">
         <p>Well done on buying your toy!</p>
-        <p>If you would like to go back to pick another of the toys you just looked for, press the "Continue" button.</p>
+        <p id="toy-description">Would you like to buy another one of these toys or start a new game and look for another toy?</p>
         <button id="continue-game">Continue</button>
-        <p>If you would prefer to search for a different kind of toy, press the "New Game" button</p>
+        <p id="new-game-instruction">If you would prefer to search for a different kind of toy, press the "New Game" button</p>
         <button id="new-game">New game</button>
     </div>
 
