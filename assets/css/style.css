@@ -1,6 +1,6 @@
 body {
     background-color: #fffacd;
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: "Nunito Sans", sans-serif;
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -8,11 +8,12 @@ body {
     align-items: center;
     justify-content: center;
 }
+
 #hero-image {
     max-height: 200px;
     width: auto;
-
 }
+
 .page-section {
     display: none;
     flex-direction: column;
@@ -21,9 +22,11 @@ body {
     width: 100%;
     height: 100%;
     text-align: center;
-}    
+}
 
-#first-page, #game-page, #success-page #gallery-page #search-result {
+#first-page,
+#game-page,
+#success-page #gallery-page #search-result {
     display: flex;
 }
 
@@ -31,29 +34,39 @@ button {
     padding: 10px 20px;
     border-radius: 5px;
     font-size: 16px;
-    cursor:pointer;
+    cursor: pointer;
     transition: background-color 0.3s, transform 0.2, box-shadow 0.2;
     margin: 10px 5px;
 }
 
-#search-button, #give-money, #reset-total, #continue-game, #new-game {
+#search-button,
+#give-money,
+#reset-total,
+#continue-game,
+#new-game {
     background-color: green;
     color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-#search-button:hover, #give-money:hover, #reset-total:hover, #continue-game:hover, #new-game:hover {
+#search-button:hover,
+#give-money:hover,
+#reset-total:hover,
+#continue-game:hover,
+#new-game:hover {
     background-color: darkgreen;
     transform: scale(1.05);
 }
 
-#search-button:active, #give-money:active, #reset-total:active, #continue-game:active, #new-game:active {
+#search-button:active,
+#give-money:active,
+#reset-total:active,
+#continue-game:active,
+#new-game:active {
     background-color: yellow;
-    box-shadow:  0 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     transform: scale(1.02);
 }
-
-
 
 #search-result img {
     cursor: pointer;
@@ -68,10 +81,9 @@ button {
 }
 
 #search-result {
-    background-color: #3ae1fa;
+    background-color: black;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
-
 
 .chosenimage {
     width: 200px;
@@ -127,15 +139,48 @@ button {
 #coins button {
     border: none;
     background: none;
-    padding:0;
+    padding: 0;
 }
 
-#total, #price {
+#total,
+#price {
     font-size: 2em;
 }
 
-#feedback-message{
+#feedback-message {
     color: red;
     font-size: 1.2em;
     margin-top: 10px;
+}
+
+/* medua  query for mobile 600px or less */
+@media (max-width: 600px) {
+    body {
+        justify-content: flex-start;
+        overflow-y: auto;
+    }    
+
+    #hero-image {
+        max-height: 150px;
+        margin-top: 10px;
+    }
+
+    #search-result img {
+        width: 90%;
+        max-width: 150px;
+        margin:  10px auto;
+    }
+
+    #coins {
+        flex-wrap: wrap;
+    }
+
+    #coins button {
+        flex: 1 1 30%;
+        margin: 5px;
+    }
+
+    #total, #price {
+        font-size: 1.5em;
+    }
 }
