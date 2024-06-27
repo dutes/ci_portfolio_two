@@ -1,4 +1,4 @@
-//event listener for page changes to move through states
+//event listeners for page changes 
 document.addEventListener("DOMContentLoaded", () => {
   const firstPage = document.getElementById("first-page");
   const galleryPage = document.getElementById("gallery-page");
@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const newGameInstruct = document.getElementById("new-game-instruction");
   const searchInput = document.getElementById("search-query");
 
+  //setting empty vars for price and a purchased items array
   let price = 0;
   let total = 0;
   let purchasedItems = [];
@@ -21,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initialize to show the first page
   showSection("first-page");
 
-  //search functionality
+  //capture the user input from the search feild
   document
     .getElementById("search-bar")
     .addEventListener("submit", function (event) {
@@ -47,6 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Data received:", data); //debug output
         if (data.items && data.items.length > 0) {
           displayImages(data.items);
+          data.items=data.items.filter(item => !purchasedItems.includes(item.link));
+          displayImages(data.items); 
           showSection("gallery-page");
         } else {
           displayNoResults();
@@ -64,7 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("Item:", item); // Debugging: log each item
       const imgWrapper = document.createElement("div");
       imgWrapper.style.position ="relative";
-      
       const imgElement =document.createElement("img");
       imgElement.src = item.link;
       imgElement.alt = item.title;
@@ -78,13 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
         totalElement.textContent = `${total.toFixed(2)}€`;
         showSection("game-page");
       });
-      if (purchasedItems.includes(item.link)) {
-        imgElement.classList.add("sold");
-        const overlay = document.createElement("div");
-        overlay.classList.add("sold-overlay");
-        overlay.textContent = "SOLD";
-        imgWrapper.appendChild(overlay);
-      }
       imgWrapper.appendChild(imgElement);
       resultsContainer.appendChild(imgWrapper);
     });
@@ -111,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("section not found", sectionId);
     }
   }
-
+  //function to generate a price between 0.5 and 5.00
   function generateRandomPrice() {
     const coinValues = [0.05, 0.1, 0.2, 0.5, 1.0, 2.0];
     let maxPrice = 5.0;
@@ -138,8 +133,6 @@ document.addEventListener("DOMContentLoaded", () => {
       showSection("success-page");
       successChosenToy.src = chosenImage.src;
       successChosenToy.style.display = "block";
-      purchasedItems.push(chosenImage.src);
-      console.log(purchasedItems);
       if (purchasedItems.length >= 5) {
         toyDescription.textContent =
           "You have bought all the toys you searched for! Start a new game and look for another toy!";
@@ -166,11 +159,11 @@ document.addEventListener("DOMContentLoaded", () => {
     totalElement.textContent = `${total.toFixed(2)}€`;
     feedbackMessage.textContent = "";
   });
-
+  //continue game button functionality
   document.getElementById("continue-game").addEventListener("click", () => {
     showSection("gallery-page");
   });
-
+  //new game button
   document.getElementById("new-game").addEventListener("click", () => {
     purchasedItems=[];
     searchInput.value='';

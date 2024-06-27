@@ -35,7 +35,7 @@ button {
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2, box-shadow 0.2;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
     margin: 10px 5px;
 }
 
@@ -72,7 +72,7 @@ button {
     cursor: pointer;
     padding: 10px;
     /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
-    transition: transform 0.3s, box-shadow 0.3;
+    transition: background-color 0.3s transform 0.3s, box-shadow 0.3s;
 }
 
 #search-result img:hover {
@@ -156,26 +156,6 @@ button {
     color: red;
     font-size: 1.2em;
     margin-top: 10px;
-}
-
-.sold {
-    position: relative;
-    filter: grayscale(100%);
-    opacity: 0.5;
-}
-
-.sold-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color:red;
-    font-size: 2em;
-    background: rgba(255, 255, 255, 0.6);
-    padding: 5px 10px;
-    border-radius: 5px;
-    pointer-events: none;
-    text-align: center;
 }
 
 /* media  query for mobile 600px or less */
