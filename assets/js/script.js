@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .getElementById("search-bar")
     .addEventListener("submit", function (event) {
       event.preventDefault();
-      const query = document.getElementById("search-query").value; //get the user input
+      const query = document.getElementById("search-query").value.trim(); //get the user input
       if (query) {
         searchQueryImage(query + " toy"); //append toy to the user search query
       }
@@ -41,14 +41,11 @@ document.addEventListener("DOMContentLoaded", () => {
       query
     )}&searchType=image&num=5`;
     //https://developers.google.com/custom-search/v1/introduction -> google custom search docs
-    console.log("Fetching URL:", url); //debug output
     fetch(url) //code to use custom google search and pass the data off to the displayimages function or if none, displaynoresults
       .then((response) => response.json())
       .then((data) => {
-        console.log("Data received:", data); //debug output
         if (data.items && data.items.length > 0) {
-          displayImages(data.items);
-          data.items=data.items.filter(item => !purchasedItems.includes(item.link));
+          const filteredItems = data.items=data.items.filter(item => !purchasedItems.includes(item.link));
           displayImages(data.items); 
           showSection("gallery-page");
         } else {
@@ -64,7 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const resultsContainer = document.getElementById("search-result");
     resultsContainer.innerHTML = "";
     items.forEach((item) => {
-      console.log("Item:", item); // Debugging: log each item
       const imgWrapper = document.createElement("div");
       imgWrapper.style.position ="relative";
       const imgElement =document.createElement("img");
@@ -72,7 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
       imgElement.alt = item.title;
       imgElement.style.width = "200px";
       imgElement.addEventListener("click", () => {
-        console.log("image clicked", item.link);
         chosenImage.src = item.link;
         price = generateRandomPrice();
         priceElement.textContent = `${price.toFixed(2)}€`;
@@ -93,7 +88,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //function to show the active section
   function showSection(sectionId) {
-    console.log("trying to load", sectionId);
     firstPage.style.display = "none";
     galleryPage.style.display = "none";
     gamePage.style.display = "none";
@@ -101,14 +95,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const sectionToShow = document.getElementById(sectionId);
     if (sectionToShow) {
       sectionToShow.style.display = "flex";
-      console.log("Section shown:", sectionId);
     } else {
       console.error("section not found", sectionId);
     }
   }
   //function to generate a price between 0.5 and 5.00
   function generateRandomPrice() {
-    const coinValues = [0.05, 0.1, 0.2, 0.5, 1.0, 2.0];
     let maxPrice = 5.0;
     let minPrice = 0.05;
     let steps = (maxPrice - minPrice) / 0.05; //establish range and number of steps between 0.05 and 5
@@ -130,6 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("give-money").addEventListener("click", () => {
     if (total.toFixed(2) === price.toFixed(2)) {
       successSound.play();
+      purchasedItems.push(chosenImage.src);
       showSection("success-page");
       successChosenToy.src = chosenImage.src;
       successChosenToy.style.display = "block";

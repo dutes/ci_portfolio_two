@@ -13,10 +13,14 @@
     <title>Toy Shop</title>
 </head>
 
-<body>
+<body class="container">
+    <header>
+        <h1>Welcome to the toy shop</h1>
+    </header>
+
+<main>
     <!--welcome/search section -->
     <div id="first-page" class="page-section" style="display: flex;">
-        <h1>Welcome to the toy shop</h1>
         <img src="assets/images/hero_robot.png" alt="Friendly robot helper" id="hero-image">
         <p>Welcome to the robot toy shop! Please type what you would like to buy in the text box below:</p>
         <form id="search-bar" class="search-bar">
@@ -27,7 +31,7 @@
 
     <!--gallery and user choice section-->
     <div id="gallery-page" class="page-section" style="display: none;">
-        <h1>Pick the toy you want to buy</h1>
+        <h2>Pick the toy you want to buy</h2>
         <img src="assets/images/hero_robot.png" alt="Friendly robot helper" id="hero-image">
         <p>Select the toy from the images: </p>
         <div id="search-result">
@@ -72,8 +76,13 @@
         <p id="new-game-instruction">If you would prefer to search for a different kind of toy, press the "New Game" button</p>
         <button id="new-game">New game</button>
     </div>
+</main>
 
-    <script src="assets/script.js"></script>
+<footer>
+    <p>&copy; 2024 Toy Shop corp, the "Friendly"&trade; corporation.</p>
+</footer>
+
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>

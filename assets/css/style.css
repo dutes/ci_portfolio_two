@@ -9,6 +9,27 @@ body {
     justify-content: center;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+header, footer {
+    text-align: center;
+    padding: 1em;
+}
+
+main {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 #hero-image {
     max-height: 200px;
     width: auto;
