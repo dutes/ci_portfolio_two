@@ -1,4 +1,7 @@
-//event listeners for page changes 
+/**
+ * Event listener for DOMContentLoaded event
+ * Initialises the application when the DOM content is finished loading.
+ */
 document.addEventListener("DOMContentLoaded", () => {
   const firstPage = document.getElementById("first-page");
   const galleryPage = document.getElementById("gallery-page");
@@ -19,10 +22,13 @@ document.addEventListener("DOMContentLoaded", () => {
   let total = 0;
   let purchasedItems = [];
 
-  // Initialize to show the first page
+  // Show the first page on load
   showSection("first-page");
 
-  //capture the user input from the search feild
+/**
+ * Event listener for the search bar submission
+ * Captures the user input appends 'toy' it and passes it to the searchQueryImage function
+ */
   document
     .getElementById("search-bar")
     .addEventListener("submit", function (event) {
@@ -33,7 +39,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-  //function to take user input, form a url, pass it to google and get the images back
+/**
+ * Function to perform a search query using Google Custom Search API
+ * @param {string} query - Search query string
+ */
   function searchQueryImage(query) {
     const apiKey = "AIzaSyDfW4eFArqNyrreygkdM8GPcDzgneDC_h0";
     const cx = "40e807cc4d6bf4848";
@@ -55,7 +64,10 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch((error) => console.error("Fetch error:", error)); //debug
   }
 
-  //function to display images in the search result container
+  /**
+   * Function to display images in the search result container
+   * @param {Array} items - Array of image items from the search results
+   */
   function displayImages(items) {
     //runs through the returned json blob and pulls out the image link, title and sets size to 200px
     const resultsContainer = document.getElementById("search-result");
@@ -80,13 +92,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  //function to output message when no images were found
+  /**
+   * Function to display a message when no images were found.
+   */
   function displayNoResults() {
     const resultsContainer = document.getElementById("gallery-page");
     resultsContainer.innerHTML = "<p>No images found</p>";
   }
 
-  //function to show the active section
+  /**
+   * Function to show the active section and hide the no active 
+   * @param {string} sectionId - The ID of the sectionto be shown
+   */
   function showSection(sectionId) {
     firstPage.style.display = "none";
     galleryPage.style.display = "none";
@@ -99,7 +116,11 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("section not found", sectionId);
     }
   }
-  //function to generate a price between 0.5 and 5.00
+  
+  /**
+   * Function to generate a number between 0.05 and 5.00 in increments of 0.05
+   * @returns {Number} - Random price in range 0.05 - 5.00
+   */
   function generateRandomPrice() {
     let maxPrice = 5.0;
     let minPrice = 0.05;
@@ -109,7 +130,9 @@ document.addEventListener("DOMContentLoaded", () => {
     return parseFloat(price);
   }
 
-  //coin button event listener total sum
+  /** 
+   * Event listeners for coin buttons which update the total
+   */
   document.querySelectorAll(".coin").forEach((coin) => {
     coin.addEventListener("click", () => {
       const coinValue = parseFloat(coin.getAttribute("data-value"));
@@ -118,7 +141,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  //submit button event listener (give-money). Feeback on over or under
+  /** 
+   * Event listener for the 'give money' button 
+   * Provides user feedback on the total amount tendered
+   */
   document.getElementById("give-money").addEventListener("click", () => {
     if (total.toFixed(2) === price.toFixed(2)) {
       successSound.play();
@@ -146,17 +172,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  //reset button
+  /** 
+   * Event listener for the reset button to reset the total and clears the feedback message
+   */
   document.getElementById("reset-total").addEventListener("click", () => {
     total = 0;
     totalElement.textContent = `${total.toFixed(2)}€`;
     feedbackMessage.textContent = "";
   });
-  //continue game button functionality
+  /**
+   * Event listener for the continue game button to show the gallery page
+   */
   document.getElementById("continue-game").addEventListener("click", () => {
     showSection("gallery-page");
   });
-  //new game button
+  /**
+   * Event listener for the new game btton which resets the game state
+   */
   document.getElementById("new-game").addEventListener("click", () => {
     purchasedItems=[];
     searchInput.value='';
