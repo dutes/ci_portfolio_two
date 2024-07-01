@@ -1,6 +1,6 @@
 ## Toy Shop
 
-The aim of this site was to help my son with his maths understanding. I wanted to make a fun and simple game for him to be able to paly and while he played, practiced his maths skills.
+The aim of this site was to help my son improve his understanding of mathematics in a fun and engaging way. I wanted to create a simple yet interactive game that he could enjoy while practicing essential math skills. The Toy Shop game allows users to search for toys, select their favorites, and simulate buying them using virtual coins. This not only makes learning arithmetic enjoyable but also helps users understand the value of money through playful interaction.
 
 ![Toy shop](assets/images/hero_robot.webp)
 
