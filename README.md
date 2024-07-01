@@ -272,7 +272,7 @@ The process is as follows:
  - Select Main from the source drop-down.
  - The deployment process will begin and progress can be observed with the ribbon display on the right hand side of the Github page. Once the displays green the site should be deployed.
 
- The live link to the site is: [Chef-O-Mat](https://dutes.github.io/ci_portfolio_one/index.html)
+ The live link to the site is: [Toy Shop](https://dutes.github.io/ci_portfolio_two/index.html)
 
  ## Cloning
 
@@ -303,6 +303,7 @@ The process is as follows:
 [W3cJavaScript](https://www.w3schools.com/js/) - Used during module for greater understanding of concepts of JavaSciript.
 
 ***MDN JavaScript***
+
 [MDN](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript) - Useful for more technically detailed aspects of JavaScript
 
 
