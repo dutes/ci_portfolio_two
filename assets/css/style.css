@@ -35,6 +35,14 @@ main {
     width: auto;
 }
 
+#error-404-img {
+    width: 80%;
+    max-width: 1000px;
+    height: auto;
+    margin: auto;
+    box-sizing: border-box;
+}
+
 .page-section {
     display: none;
     flex-direction: column;
@@ -178,6 +186,8 @@ button {
     font-size: 1.2em;
     margin-top: 10px;
 }
+
+
 
 /* media  query for mobile 600px or less */
 @media (max-width: 600px) {
