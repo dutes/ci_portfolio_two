@@ -19,6 +19,7 @@ The aim of this site was to help my son improve his understanding of mathematics
 - [Footer](#footer)
 - [Main Page](#main-page)
 - [Search Gallery Page](#search-gallery-page)
+  - [Reduced Gallery Page](#gallery-page-reduced)
 - [Game Page](#game-page)
 - [Success Page](#success-page)
 - [Well Done - New Game Page](#well-done---new-game-page)
@@ -36,7 +37,7 @@ The aim of this site was to help my son improve his understanding of mathematics
 - [Cloning](#cloning)
 - [References](#references)
 - [Technologies Used](#technologies-used)
-- [Credit](#credit)
+- [Credit & Thanks](#credit--thanks)
 
 
 ## Wire Frame
@@ -111,8 +112,15 @@ The overall goal for this website is to take a user input search query, pass it 
 - The user is instructed to select one of the images to advance to the next stage. 
 - The images are responsive to mouse over and the cursor changes to a pointer to reinforce the interactivity of the images. 
 - The gallery is fully responsive to screen sizes from 250px to 3440px wide.
+- A link to take the user back to the first page to try searching for a different toy is included under the gallery.
 
 ![gallery](assets/readme_images/gallery_page_boats.png)
+
+### Gallery Page reduced
+  - after the user has bought a car and choses to return to the gallery to pick a new toy to buy, the previously purchased toys will have been removed.
+
+  ![reduced_gallery](assets/readme_images/galery_reduced.png)
+
 
 ## Game Page
 
@@ -121,6 +129,7 @@ The overall goal for this website is to take a user input search query, pass it 
 - The coins are reactive to hover over, expanding and changing the cursor to a grabber to indicate interactivity. 
 - The give money to the shop keeper button submits the user's total to be checked against the price total. If the user is under or over the price, they are given text feedback as to which it is. 
 - Both buttons are responsive to mouse over and click.
+- A back to gallery link is included to return the user to the gallery page to chose a different toy to buy.
 
 ![game](assets/readme_images/game_page.png)
 
@@ -128,7 +137,7 @@ The overall goal for this website is to take a user input search query, pass it 
 
 - The success page is displayed when the user submits a total that matches the price. 
 - When the page is loaded, a success fanfare audio file is played. The file clip has an 'aria-label' associated with it for accessibility. 
-- The continue button returns the user back to the gallery of toys they have just chosen from.
+- The continue button returns the user back to the gallery of toys they have just chosen from, which will now have the just purchased toy removed.
 - The new game button returns the user to the main page, allowing them to select a new toy to play the game with. 
 - Both buttons are responsive to mouse over and click. The cursor changes to a pointer on mouse over.
 
@@ -145,6 +154,7 @@ The overall goal for this website is to take a user input search query, pass it 
 ## 404 Page
 
 - There is a 404 page should the user somehow find themselves where they shouldn't.
+- There is a handy link for the user to ~~run away~~ go back to the main page.
 
 ![404](assets/readme_images/404_page.png)
 
@@ -182,34 +192,34 @@ Below is an extract of the test script used to test and validate the project:
 | ---------------------------- | --------------------------------------------------------------------------------------- | -------------------------------------------------------- | ------- |
 | Search bar - entry           | 1\. Attempt to enter a leading and tailing space on a query  in the search bar          |                                                          |         |
 |                              | 2\. click search                                                                        |                                                          |         |
-|                              | 3\. verify A)                                                                           | A) The white spaces are removed                          |         |
+|                              | 3\. verify A)                                                                           | A) The white spaces are removed                          |  pass   |
 | Search bar - empty           | 1\. Attempt to click search without entering anything in the search bar                 |                                                          |         |
-|                              | 2.Verify A)                                                                             | A) The search is blocked, some input is required         |         |
+|                              | 2.Verify A)                                                                             | A) The search is blocked, some input is required         |  pass   |
 |                              |                                                                                         |                                                          |         |
 | Gallery page - screen resize | 1\. On the gallery page, resize the screen                                              |                                                          |         |
-|                              | 2\. Verify A)                                                                           | A) the gallery is not adversely affected by the resizing |         |
+|                              | 2\. Verify A)                                                                           | A) the gallery is not adversely affected by the resizing |  pass   |
 |                              |                                                                                         |                                                          |         |
 | Game page - coins on resize  | 1\. on the game page resize the screen to 250px wide                                    |                                                          |         |
-|                              | 2\. verify A)                                                                           | A) the coins are still functional                        |         |
+|                              | 2\. verify A)                                                                           | A) the coins are still functional                        |  pass   |
 |                              |                                                                                         |                                                          |         |
 |                              | 1\. on the game page resize the screen to 3440px wide                                   |                                                          |         |
-|                              | 2\. verify A)                                                                           | A) the coins are still functional                        |         |
+|                              | 2\. verify A)                                                                           | A) the coins are still functional                        |  pass   |
 |                              |                                                                                         |                                                          |         |
 | Spam the buttons             | 1\. Attempt to break the search button by rapidly clicking on it                        |                                                          |         |
-|                              | 2\. Verify A)                                                                           | A) the search button should suffer no ill effects        |         |
+|                              | 2\. Verify A)                                                                           | A) the search button should suffer no ill effects        |  pass   |
 |                              |                                                                                         |                                                          |         |
 |                              | 1\. Attempt to break the give money to the shop keeper button by rapidly clicking on it |                                                          |
-|                              | 2\. Verify A)                                                                           | A) the search button should suffer no ill effects        |         |
+|                              | 2\. Verify A)                                                                           | A) the search button should suffer no ill effects        |  pass   |
 |                              |                                                                                         |                                                          |         |
 |                              | 1\. Attempt to break the start over button by rapidly clicking on it                    |                                                          |         |
-|                              | 2\. Verify A)                                                                           | A) the search button should suffer no ill effects        |         |
+|                              | 2\. Verify A)                                                                           | A) the search button should suffer no ill effects        |  pass   |
 |                              |                                                                                         |                                                          |         |
 |                              | 1\. Attempt to break the new game button by rapidly clicking on it                      |                                                          |         |
-|                              | 2\. Verify A)                                                                           | A) the search button should suffer no ill effects        |         |
+|                              | 2\. Verify A)                                                                           | A) the search button should suffer no ill effects        |  pass   |
 |                              |                                                                                         |                                                          |         |
 | buying all 5 toys            | 1\. Play the game                                                                       |                                                          |         |
 |                              | 2\. buy each of the five toys in a collection                                           |                                                          |         |
-|                              | 3\. Verify A)                                                                           | A) the user is only given the new game option            |         |
+|                              | 3\. Verify A)                                                                           | A) the user is only given the new game option            |  pass   |
 
 
 Here is a breakdown of the devices the projected was tested across:
@@ -332,6 +342,7 @@ The process is as follows:
 - Remove Background
    - [Remove background](https://www.remove.bg/upload) Used to remove the background from the site images.
 
-### Credit
+### Credit & Thanks
 - Audio file taken from [Pixelbay](https://pixabay.com/).
+- And thanks to my mentor, Daisy Mc Girr for all the help and guidance.
 
