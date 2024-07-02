@@ -36,6 +36,7 @@ The aim of this site was to help my son improve his understanding of mathematics
 - [Cloning](#cloning)
 - [References](#references)
 - [Technologies Used](#technologies-used)
+- [Credit](#credit)
 
 
 ## Wire Frame
@@ -331,4 +332,6 @@ The process is as follows:
 - Remove Background
    - [Remove background](https://www.remove.bg/upload) Used to remove the background from the site images.
 
+### Credit
+- Audio file taken from [Pixelbay](https://pixabay.com/).
 
