@@ -47,6 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const query = document.getElementById("search-query").value.trim(); //get the user input
       if (query) {
         searchQueryImage(query + " toy"); //append toy to the user search query
+      } else {
+        document.querySelector(".error").innerHTML = "Please enter a search query";
       }
     });
 

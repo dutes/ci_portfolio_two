@@ -22,73 +22,81 @@
         <h1>Welcome to the toy shop</h1>
     </header>
 
-<main>
-    <!--welcome/search section -->
-    <div id="first-page" class="page-section" style="display: flex;">
-        <img src="assets/images/hero_robot.webp" alt="Friendly robot helper" id="hero-image">
-        <p>Welcome to the robot toy shop! Please type what you would like to buy in the text box below:</p>
-        <form id="search-bar" class="search-bar">
-            <input type="text" id="search-query" class="search-input" placeholder="Enter your toy here" required aria-label="Search for toys">
-            <button type="submit" id="search-button" class="search-button">Search</button>
-        </form>
-    </div>
-
-    <!--gallery and user choice section-->
-    <div id="gallery-page" class="page-section" style="display: none;">
-        <h2>Pick the toy you want to buy</h2>
-        <img src="assets/images/hero_robot.webp" alt="Friendly robot helper" class="hero-image">
-        <p>Select the toy from the images: </p>
-        <div id="search-result">
-            <!-- This is where the image returned from the GIS will be displayed -->
+    <main>
+        <!--welcome/search section -->
+        <div id="first-page" class="page-section" style="display: flex;">
+            <img src="assets/images/hero_robot.webp" alt="Friendly robot helper" id="hero-image">
+            <p>Welcome to the robot toy shop! Please type what you would like to buy in the text box below:</p>
+            <p class="error"></p>
+            <form id="search-bar" class="search-bar">
+                <input type="text" id="search-query" class="search-input" placeholder="Enter your toy here" required
+                    aria-label="Search for toys">
+                <button type="submit" id="search-button" class="search-button">Search</button>
+            </form>
         </div>
-        <a href="#first-page" class="navigation-button">Back to Search</a>
-    </div>
 
-    <!--game section-->
-    <div id="game-page" class="page-section" style="display: none;">
-        <img src="assets/images/hero_robot.webp" alt="Friendly robot helper" class="hero-image">
-        <h1>You chose to buy this toy:</h1>
-        <p>You click on the coins to reach the total and press the 'Give money to shop keeper' button.</p>
-        <p>If you make a mistake you can press the 'Start over' button</p>
-        <img id="chosen-image" class="chosenimage" src="placeholder" alt="Selected toy">
-        <p>The price is:<span id="price"></span> </p>
-        <div id="coins">
-            <button class="coin coin-5c" data-value="0.05"><img src="assets/images/5cent.webp"
-                    alt="5 cent coin"></button>
-            <button class="coin coin-10c" data-value="0.10"><img src="assets/images/10cent.webp"
-                    alt="10 cent coin"></button>
-            <button class="coin coin-20c" data-value="0.20"><img src="assets/images/20cent.webp"
-                    alt="20 cent coin"></button>
-            <button class="coin coin-50c" data-value="0.50"><img src="assets/images/50cent.webp"
-                    alt="50 cent coin"></button>
-            <button class="coin coin-1e" data-value="1"><img src="assets/images/1euro.webp" alt="1 euro coin"></button>
-            <button class="coin coin-2e" data-value="2"><img src="assets/images/2euro.webp" alt="2 euro coin"></button>
+        <!--gallery and user choice section-->
+        <div id="gallery-page" class="page-section" style="display: none;">
+            <h2>Pick the toy you want to buy</h2>
+            <img src="assets/images/hero_robot.webp" alt="Friendly robot helper" class="hero-image">
+            <p>Select the toy from the images: </p>
+            <div id="search-result">
+                <!-- This is where the image returned from the GIS will be displayed -->
+            </div>
+            <a href="#first-page" class="navigation-button">Back to Search</a>
         </div>
-        <p>Total: <span id="total"></span></p>
-        
-        <button id="give-money">Give money to shop keeper</button>
-        <button id="reset-total">Start over</button>
-        <p id="feedback-message"></p>
-        <a href="#gallery-page" class="navigation-button">Back to Gallery</a>
-    </div>
 
-    <!--well done section-->
-    <div id="success-page" class="page-section" style="display: none;">
-        <img src="assets/images/hero_robot.webp" alt="Friendly robot helper" class="hero-image">
-        <h1> WELL DONE! </h1>
-        <audio id="success-sound" src="assets/sounds/success-sound.mp3" aria-label="Success fanfare effect when a purchase is completed"></audio> <!--hat tip https://pixabay.com/-->
-        <img id="chosen-toy-image" src="placeholder" alt="Purchased toy" style="width: 200px; display: none;">
-        <p>Well done on buying your toy!</p>
-        <p id="toy-description">Would you like to buy another one of these toys or start a new game and look for another toy?</p>
-        <button id="continue-game">Continue</button>
-        <p id="new-game-instruction">If you would prefer to search for a different kind of toy, press the "New Game" button</p>
-        <button id="new-game">New game</button>
-    </div>
-</main>
+        <!--game section-->
+        <div id="game-page" class="page-section" style="display: none;">
+            <img src="assets/images/hero_robot.webp" alt="Friendly robot helper" class="hero-image">
+            <h1>You chose to buy this toy:</h1>
+            <p>You click on the coins to reach the total and press the 'Give money to shop keeper' button.</p>
+            <p>If you make a mistake you can press the 'Start over' button</p>
+            <img id="chosen-image" src="assets/images/hero_robot.webp" class="chosenimage" alt="Selected toy">
+            <p>The price is:<span id="price"></span> </p>
+            <div id="coins">
+                <button class="coin coin-5c" data-value="0.05"><img src="assets/images/5cent.webp"
+                        alt="5 cent coin"></button>
+                <button class="coin coin-10c" data-value="0.10"><img src="assets/images/10cent.webp"
+                        alt="10 cent coin"></button>
+                <button class="coin coin-20c" data-value="0.20"><img src="assets/images/20cent.webp"
+                        alt="20 cent coin"></button>
+                <button class="coin coin-50c" data-value="0.50"><img src="assets/images/50cent.webp"
+                        alt="50 cent coin"></button>
+                <button class="coin coin-1e" data-value="1"><img src="assets/images/1euro.webp"
+                        alt="1 euro coin"></button>
+                <button class="coin coin-2e" data-value="2"><img src="assets/images/2euro.webp"
+                        alt="2 euro coin"></button>
+            </div>
+            <p>Total: <span id="total"></span></p>
 
-<footer>
-    <p>&copy; 2024 Toy Shop corp, the "Friendly"&trade; corporation.</p>
-</footer>
+            <button id="give-money">Give money to shop keeper</button>
+            <button id="reset-total">Start over</button>
+            <p id="feedback-message"></p>
+            <a href="#gallery-page" class="navigation-button">Back to Gallery</a>
+        </div>
+
+        <!--well done section-->
+        <div id="success-page" class="page-section" style="display: none;">
+            <img src="assets/images/hero_robot.webp" alt="Friendly robot helper" class="hero-image">
+            <h1> WELL DONE! </h1>
+            <audio id="success-sound" src="assets/sounds/success-sound.mp3"
+                aria-label="Success fanfare effect when a purchase is completed"></audio>
+            <!--hat tip https://pixabay.com/-->
+            <img id="chosen-toy-image" src="assets/images/hero_robot.webp" alt="Purchased toy" style="width: 200px; display: none;">
+            <p>Well done on buying your toy!</p>
+            <p id="toy-description">Would you like to buy another one of these toys or start a new game and look for
+                another toy?</p>
+            <button id="continue-game">Continue</button>
+            <p id="new-game-instruction">If you would prefer to search for a different kind of toy, press the "New Game"
+                button</p>
+            <button id="new-game">New game</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Toy Shop corp, the "Friendly"&trade; corporation.</p>
+    </footer>
 
     <script src="assets/js/script.js"></script>
 </body>
