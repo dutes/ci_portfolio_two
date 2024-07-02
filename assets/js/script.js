@@ -25,6 +25,17 @@ document.addEventListener("DOMContentLoaded", () => {
   // Show the first page on load
   showSection("first-page");
 
+  document.querySelector('.navigation-button[href="#gallery-page"]').addEventListener('click', (evt)=> {
+    evt.preventDefault();
+    showSection("gallery-page");
+  })
+
+  document.querySelector('.navigation-button[href="#first-page"]').addEventListener('click', (evt)=> {
+    evt.preventDefault();
+    showSection("first-page");
+  })
+
+
 /**
  * Event listener for the search bar submission
  * Captures the user input appends 'toy' it and passes it to the searchQueryImage function
