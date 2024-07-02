@@ -39,7 +39,7 @@ The aim of this site was to help my son improve his understanding of mathematics
 
 
 ## Wire Frame
-
+![wireframe](assets/readme_images/wireframe_git_proj_two.png)
 
 
 
@@ -160,14 +160,14 @@ The overall goal for this website is to take a user input search query, pass it 
 - Open credentials section, click create credentials followed by 'API Key'
 - Copy the API key generated.
 - Open a new tab and go to 'Google custom search engine'
-- Chose to create a new search engine.
+- Choose to create a new search engine.
 - Customise the new engine to be an image only serach also enable safe search.
 - Open the 'Search Engine ID' link, note the search engine ID for using in API calls.
 - Return to the API and Services section, click on credentials.
 - Click to edit your API.
 - Click to add restrictions on HTTP traffic 
 - Enter the sites you wish to whitelist. 
-- Click on Save and your API key has been restircted to the sites you specified. 
+- Click on Save and your API key has been restricted to the sites you specified. 
 
 ![api](assets/readme_images/api_rest.png)
 
@@ -180,10 +180,10 @@ Below is an extract of the test script used to test and validate the project:
 | Test Title                   | Test Steps                                                                              | Validation                                               | Results |
 | ---------------------------- | --------------------------------------------------------------------------------------- | -------------------------------------------------------- | ------- |
 | Search bar - entry           | 1\. Attempt to enter a leading and tailing space on a query  in the search bar          |                                                          |         |
-|                              | 2\. click serach                                                                        |                                                          |         |
+|                              | 2\. click search                                                                        |                                                          |         |
 |                              | 3\. verify A)                                                                           | A) The white spaces are removed                          |         |
-| Search bar - empty           | 1\. Attempt to clcik search without entering anything in the search bar                 |                                                          |         |
-|                              | 2.Vefify A)                                                                             | A) The search is blocked, some input is required         |         |
+| Search bar - empty           | 1\. Attempt to click search without entering anything in the search bar                 |                                                          |         |
+|                              | 2.Verify A)                                                                             | A) The search is blocked, some input is required         |         |
 |                              |                                                                                         |                                                          |         |
 | Gallery page - screen resize | 1\. On the gallery page, resize the screen                                              |                                                          |         |
 |                              | 2\. Verify A)                                                                           | A) the gallery is not adversely affected by the resizing |         |
@@ -231,7 +231,7 @@ And here is the browser coverage for testing:
 
 
 ### Accessibility Testing:
-Accesability was considered from the very begining of the project. To that end, best practices were followed and the LightHouse and Wave test results represent that consideration. 
+Accessibility was considered from the very beginning of the project. To that end, best practices were followed and the LightHouse and Wave test results represent that consideration. 
 In addition to the search box aria tag, a second aria tag was added to the sound file triggered once the user is successful in buying a toy.
 
 # Desktop LightHouse Result:
@@ -247,7 +247,7 @@ In addition to the search box aria tag, a second aria tag was added to the sound
 
 
 ### Validation Testing
-The web site was ran through the W3C HTML and CSS validatiors and passed without any errors.
+The web site was ran through the W3C HTML and CSS validators and passed without any errors.
 
 ### Deployment
 
@@ -300,7 +300,7 @@ The process is as follows:
 
 ***W3Schools Javascript***
 
-[W3cJavaScript](https://www.w3schools.com/js/) - Used during module for greater understanding of concepts of JavaSciript.
+[W3cJavaScript](https://www.w3schools.com/js/) - Used during module for greater understanding of concepts of JavaScript.
 
 ***MDN JavaScript***
 
@@ -329,6 +329,6 @@ The process is as follows:
 - Excel to Markdown
   - [Excel to Markdown](https://tabletomarkdown.com/convert-spreadsheet-to-markdown/) Used for tables in testing section
 - Remove Background
-   - [Removce background](https://www.remove.bg/upload) Used to remove the background from the site images.
+   - [Remove background](https://www.remove.bg/upload) Used to remove the background from the site images.
 
 
