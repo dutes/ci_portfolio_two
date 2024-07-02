@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
       query
     )}&searchType=image&num=5`;
     //https://developers.google.com/custom-search/v1/introduction -> google custom search docs
-    fetch(url) //code to use custom google search and pass the data off to the displayimages function or if none, displaynoresults
+    fetch(url) //code to use custom google search and pass the data off to the display images function or if none, display no results
       .then((response) => response.json())
       .then((data) => {
         if (data.items && data.items.length > 0) {
@@ -98,6 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
         priceElement.textContent = `${price.toFixed(2)}€`;
         total = 0;
         totalElement.textContent = `${total.toFixed(2)}€`;
+        imgElement.remove();
         showSection("game-page");
       });
       imgWrapper.appendChild(imgElement);
